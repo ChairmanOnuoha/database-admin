@@ -1,0 +1,566 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Joseph Onuoha</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one left-aligned column on a cool paper ground. Hero pairs the name with a to-scale
+   CPU chart from the Selfany work. Experience reads as a dated log, newest first. */
+:root {
+  --bg: #F1F4F5;
+  --surface: #FFFFFF;
+  --ink: #0F1C24;
+  --muted: #51636E;
+  --line: #D3DCE0;
+  --accent: #B42318;
+  --accent-ink: #FFFFFF;
+  --data: #2F5D7C;
+  --tile: #FFFFFF;
+  --tile-ink: #0F1C24;
+  --tile-muted: #51636E;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E161B;
+    --surface: #152028;
+    --ink: #E8EEF1;
+    --muted: #9DB0BA;
+    --line: #263640;
+    --accent: #FF7A6B;
+    --accent-ink: #1A0B09;
+    --data: #7FB2D6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E161B;
+  --surface: #152028;
+  --ink: #E8EEF1;
+  --muted: #9DB0BA;
+  --line: #263640;
+  --accent: #FF7A6B;
+  --accent-ink: #1A0B09;
+  --data: #7FB2D6;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--font-mono); }
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; }
+
+/* top bar */
+.bar { border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: baseline; justify-content: space-between; padding-block: 1rem; }
+.bar .mark { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.bar nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+.bar nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem 3.5rem; align-items: start; padding-block: 4rem 4.5rem; }
+.hero h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0.03em; margin-top: 0.9rem; }
+.hero .lede { font-size: 1.2rem; max-width: 34rem; margin-top: 1.5rem; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn {
+  display: inline-block; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+  padding: 0.7rem 1.1rem; border: 2px solid var(--ink); color: var(--ink); background: transparent;
+  text-decoration: none; cursor: pointer; border-radius: 2px;
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { text-decoration: underline; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); padding: 1.25rem; min-width: 0; }
+.panel svg { width: 100%; height: auto; display: block; margin-top: 0.75rem; }
+.panel .t { fill: var(--ink); font-family: var(--font-mono); font-size: 11px; }
+.panel .tm { fill: var(--muted); font-family: var(--font-mono); font-size: 10px; }
+.panel .grid { stroke: var(--line); stroke-width: 1; }
+.panel .b-before { fill: var(--data); }
+.panel .b-after { fill: var(--accent); }
+.facts { display: grid; gap: 0.9rem; margin: 1.1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+.facts div { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
+.facts dt { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1.1; }
+.facts dd { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+/* sections */
+section { border-top: 1px solid var(--line); }
+section > .wrap { padding-block: 3.5rem; }
+.sec-head { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 1rem 3rem; }
+.sec-head > .intro { max-width: 40rem; }
+.stack { display: grid; gap: 2.25rem; }
+
+.about p + p { margin-top: 1rem; }
+.about .body { max-width: 40rem; font-size: 1.08rem; }
+
+/* experience */
+.role { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 0.75rem 3rem; padding-bottom: 2.25rem; border-bottom: 1px dashed var(--line); }
+.role:last-child { border-bottom: 0; padding-bottom: 0; }
+.role .when { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
+.role .org { color: var(--muted); margin-top: 0.15rem; }
+.role ul { list-style: none; margin: 0.9rem 0 0; padding: 0; display: grid; gap: 0.55rem; max-width: 42rem; }
+.role li { position: relative; padding-left: 1.1rem; }
+.role li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.5rem; height: 2px; background: var(--accent); }
+
+/* expertise */
+.groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+.groups h3 { margin-bottom: 0.6rem; }
+.groups ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.groups li { padding-left: 0.9rem; border-left: 2px solid var(--line); }
+
+.ver { display: grid; grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr)); gap: 0.5rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.ver li { font-family: var(--font-mono); font-size: 0.9rem; text-align: center; padding: 0.55rem 0.4rem; background: var(--surface); border: 1px solid var(--line); }
+.tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.tools li { font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 1px solid var(--ink); border-radius: 2px; }
+.sub { margin-top: 2.25rem; }
+.sub h3 { margin-bottom: 0.1rem; }
+.sub p.note { color: var(--muted); font-size: 0.9rem; }
+
+/* teaching + education */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+.two ul { margin: 0.75rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; }
+.entry + .entry { margin-top: 1.25rem; }
+.entry .meta { color: var(--muted); font-size: 0.9rem; }
+
+/* contact */
+.contact-list { display: grid; gap: 0.9rem; margin: 1.5rem 0 0; padding: 0; list-style: none; max-width: 36rem; }
+.contact-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; justify-content: space-between; background: var(--surface); border: 1px solid var(--line); padding: 0.8rem 1rem; }
+.contact-list .k { display: block; }
+.contact-list .v { font-family: var(--font-mono); font-size: 1rem; overflow-wrap: anywhere; user-select: all; }
+.contact-list .v-wrap { min-width: 0; }
+.copy { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.8rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; border-radius: 2px; }
+.copy:hover { background: var(--ink); color: var(--bg); }
+
+/* videos */
+.videos-head { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: baseline; justify-content: space-between; }
+.vgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.vcard { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.vcard:hover { border-color: var(--accent); }
+.vcard:hover .vtitle { text-decoration: underline; text-underline-offset: 3px; }
+.vscreen { position: relative; aspect-ratio: 16 / 9; max-width: 100%; display: flex; align-items: flex-end; padding: 1rem 1.1rem; background: var(--ink); color: var(--bg); }
+.vtag { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.05; max-width: 60%; }
+.play { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); width: 3.25rem; height: 3.25rem; border-radius: 50%; background: var(--accent); }
+.play::after { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%); border-style: solid; border-width: 0.55rem 0 0.55rem 0.9rem; border-color: transparent transparent transparent var(--accent-ink); }
+.vbody { display: grid; gap: 0.45rem; padding: 1rem 1.1rem 1.25rem; }
+.vtitle { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.25; text-wrap: balance; }
+.vdesc { color: var(--muted); font-size: 0.92rem; }
+.vgo { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-top: 0.25rem; }
+@media (max-width: 760px) { .vgrid { grid-template-columns: minmax(0, 1fr); } }
+
+/* employer roll */
+.employers > .wrap { padding-block: 1.75rem 0.5rem; }
+.roll {
+  overflow: hidden;
+  padding-block: 0.75rem 2.25rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.roll-track { display: flex; width: max-content; animation: roll 34s linear infinite; }
+.roll:hover .roll-track, .roll:focus-within .roll-track { animation-play-state: paused; }
+.roll-set { display: flex; margin: 0; padding: 0; list-style: none; }
+.logo {
+  flex: none; width: 9rem; height: 9rem; margin-right: 1.5rem; padding: 0.6rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--tile); border: 1px solid var(--line);
+}
+.logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.logo.text { flex-direction: column; gap: 0.3rem; text-align: center; color: var(--tile-ink); }
+.logo.text .n { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.1; }
+.logo.text .s { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tile-muted); }
+@keyframes roll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .roll-track { animation: none; }
+  .roll { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .roll-set[aria-hidden="true"] { display: none; }
+}
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 1.5rem 2rem; color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 2.5rem 3rem; }
+  .sec-head, .role { grid-template-columns: minmax(0, 1fr); }
+  .groups, .two { grid-template-columns: minmax(0, 1fr); }
+  section > .wrap { padding-block: 2.5rem; }
+}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="mark">Joseph Onuoha</span>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#videos">Videos</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label">SQL Server DBA &middot; Instructor</p>
+        <h1>Joseph Onuoha</h1>
+        <p class="lede">I keep SQL Server databases available, recoverable and fast, and I teach the next group of DBAs how to do the same.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://www.linkedin.com/in/josephonuoha">View LinkedIn</a>
+          <a class="btn" href="#contact">Contact details</a>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="Selected result">
+        <p class="label">CPU on critical production servers</p>
+        <svg viewBox="0 0 360 150" role="img" aria-label="Bar chart. CPU load before tuning was 90 percent. After tuning it was 10 percent.">
+          <line class="grid" x1="16" y1="8" x2="16" y2="112"/>
+          <line class="grid" x1="96" y1="8" x2="96" y2="112"/>
+          <line class="grid" x1="176" y1="8" x2="176" y2="112"/>
+          <line class="grid" x1="256" y1="8" x2="256" y2="112"/>
+          <line class="grid" x1="336" y1="8" x2="336" y2="112"/>
+          <text class="tm" x="16" y="18">Before tuning</text>
+          <rect class="b-before" x="16" y="24" width="288" height="26"/>
+          <text class="t" x="310" y="42">90%</text>
+          <text class="tm" x="16" y="72">After tuning</text>
+          <rect class="b-after" x="16" y="78" width="32" height="26"/>
+          <text class="t" x="54" y="96">10%</text>
+          <text class="tm" x="16" y="132" text-anchor="start">0%</text>
+          <text class="tm" x="96" y="132" text-anchor="middle">25</text>
+          <text class="tm" x="176" y="132" text-anchor="middle">50</text>
+          <text class="tm" x="256" y="132" text-anchor="middle">75</text>
+          <text class="tm" x="336" y="132" text-anchor="end">100%</text>
+        </svg>
+        <dl class="facts">
+          <div><dt>300%</dt><dd>increase in transaction processing after the tuning work, Selfany, 2022 to 2024</dd></div>
+          <div><dt>350,000+</dt><dd>employees covered by the high availability and disaster recovery project where Joseph was primary DBA</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+
+  <section class="employers" aria-labelledby="emp-h">
+    <div class="wrap"><p class="label" id="emp-h">Where I have worked</p></div>
+    <div class="roll">
+      <div class="roll-track">
+        <ul class="roll-set">
+          <li class="logo"><img src="logos/rocana.jpg" alt="Rocana Nigeria Limited" width="144" height="144"></li>
+          <li class="logo"><img src="logos/kekeads.jpg" alt="KekeAds" width="144" height="144"></li>
+          <li class="logo"><img src="logos/selfany.jpg" alt="Selfany" width="144" height="144"></li>
+          <li class="logo text"><span class="n">Excell Services</span><span class="s">Nigeria</span></li>
+          <li class="logo"><img src="logos/nstar.jpg" alt="NSTAR Technologies" width="144" height="144"></li>
+        </ul>
+        <ul class="roll-set" aria-hidden="true">
+          <li class="logo"><img src="logos/rocana.jpg" alt="" width="144" height="144"></li>
+          <li class="logo"><img src="logos/kekeads.jpg" alt="" width="144" height="144"></li>
+          <li class="logo"><img src="logos/selfany.jpg" alt="" width="144" height="144"></li>
+          <li class="logo text"><span class="n">Excell Services</span><span class="s">Nigeria</span></li>
+          <li class="logo"><img src="logos/nstar.jpg" alt="" width="144" height="144"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap sec-head">
+      <h2>About</h2>
+      <div class="body">
+        <p>I am a SQL Server DBA with more than four years of experience supporting database applications. My work centers on backup and recovery, database security, high availability, performance tuning, index maintenance and disaster recovery.</p>
+        <p>I have worked in development and production environments on SQL Server 2005 through 2022, in 24x7 operations, on standalone servers and on clusters. I like clear runbooks, monitoring that catches problems early and backup strategies that are tested against the service level the business needs.</p>
+        <p>Since August 2025 I have also been an instructor at NSTAR Technologies in Atlanta, where I set the curriculum for the DBA program.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="stack">
+        <h2>Experience</h2>
+
+        <article class="role">
+          <div>
+            <p class="when">Aug 2025 to present</p>
+          </div>
+          <div>
+            <h3>Instructor</h3>
+            <p class="org">NSTAR Technologies, Atlanta, GA</p>
+            <ul>
+              <li>Sets the curriculum for the January, May and September cohorts of the DBA program.</li>
+              <li>Built partnerships with financing organizations to widen access to the program, and closed Fortify and Edly.</li>
+              <li>Works with WIOA and GNPEC to keep NSTAR Technologies accredited as an academic provider.</li>
+              <li>Stays hands-on with T-SQL objects, native and third party monitoring tools, and root cause analysis for SQL Server issues.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role">
+          <div>
+            <p class="when">Sep 2024 to Aug 2025</p>
+          </div>
+          <div>
+            <h3>SQL Server Database Administrator</h3>
+            <p class="org">Excell Services (part of AB-in-Bev)</p>
+            <ul>
+              <li>One of five DBAs supporting client and in-house SQL Server systems, shortening the time it takes to deliver database solutions to the business.</li>
+              <li>Implemented and supported high availability and disaster recovery with log shipping and database mirroring, backed by backup strategies across multiple instances.</li>
+              <li>Installed and configured Windows Server and SQL Server clusters on 2016 and 2008 R2.</li>
+              <li>Worked with developers and clients to match database designs to their budget and licensing cost.</li>
+              <li>Automated maintenance, alerts and integrity checks with scripts and SQL Server Agent jobs. Took part in the on-call rotation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role">
+          <div>
+            <p class="when">Jul 2022 to Sep 2024</p>
+          </div>
+          <div>
+            <h3>SQL Server Database Administrator</h3>
+            <p class="org">Selfany, Berkshire, UK (remote)</p>
+            <ul>
+              <li>Led the database team's effort to cut CPU on all critical production servers from a steady 90% to 10% by tuning queries, databases and instances. Transaction processing rose 300%.</li>
+              <li>Primary DBA on a high availability and disaster recovery project tied to the company's Active Directory, used by 350,000+ employees.</li>
+              <li>Built new clusters for mission-critical databases and set up AlwaysOn Availability Groups for SQL Server 2012 databases.</li>
+              <li>Automated backup verification across the whole SQL Server inventory with T-SQL scripts.</li>
+              <li>Introduced SolarWinds and SQL Sentry monitoring and revised the monitoring strategy for the database estate.</li>
+              <li>Wrote the team's standards for installs, migrations, upgrades, backups, restores and index maintenance, and set escalation policies.</li>
+              <li>Maintained production, UAT, QC, test, training and development environments, with 24x7 on-call support.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="wrap">
+      <div class="stack">
+        <h2>Expertise</h2>
+        <div class="groups">
+          <div>
+            <h3>Availability and recovery</h3>
+            <ul>
+              <li>Backup and recovery strategy, recovery models</li>
+              <li>Failover clustering</li>
+              <li>Log shipping and database mirroring</li>
+              <li>AlwaysOn Availability Groups</li>
+              <li>Transactional and snapshot replication</li>
+              <li>Disaster recovery planning</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Performance</h3>
+            <ul>
+              <li>Query and index tuning</li>
+              <li>Blocking and deadlock resolution</li>
+              <li>CPU and workload reduction</li>
+              <li>Table partitioning</li>
+              <li>Network connection tuning</li>
+              <li>Disk and server configuration</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Administration</h3>
+            <ul>
+              <li>Installation, upgrades and patching</li>
+              <li>Capacity planning</li>
+              <li>Logins, roles and privileges</li>
+              <li>DBCC integrity checks</li>
+              <li>SQL Server Agent automation</li>
+              <li>24x7 monitoring and on-call support</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Development and data</h3>
+            <ul>
+              <li>T-SQL stored procedures, triggers, views and functions</li>
+              <li>SSIS and DTS packages</li>
+              <li>Schema design and data modeling</li>
+              <li>Data warehousing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3>SQL Server versions supported</h3>
+          <p class="note label" style="margin-top:0.35rem">Windows Server 2005 through 2022</p>
+          <ul class="ver" aria-label="SQL Server versions">
+            <li>2005</li><li>2008</li><li>2008 R2</li><li>2012</li><li>2014</li><li>2016</li><li>2019</li><li>2022</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Monitoring and troubleshooting tools</h3>
+          <ul class="tools">
+            <li>SQL Sentry</li><li>SolarWinds</li><li>sp_WhoIsActive</li><li>SQL Server Profiler</li><li>Windows Performance Monitor</li><li>SQL Server Agent</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="wrap">
+      <div class="stack">
+        <div class="videos-head">
+          <h2>Videos</h2>
+          <a href="https://www.youtube.com/@ChairmanOnuoha">All videos on YouTube</a>
+        </div>
+        <p style="max-width:40rem;color:var(--muted)">Step-by-step SQL Server walkthroughs from my YouTube channel. Each card opens the video on YouTube.</p>
+        <div class="vgrid">
+          <a class="vcard" href="https://www.youtube.com/watch?v=f6z1aVSThiM">
+            <div class="vscreen"><span class="vtag">Patching</span><span class="play" aria-hidden="true"></span></div>
+            <div class="vbody">
+              <h3 class="vtitle">How to Patch SQL Server 2025 to the Latest CU</h3>
+              <p class="vdesc">A complete step-by-step guide to applying the latest cumulative update to a SQL Server 2025 instance.</p>
+              <span class="vgo">Watch on YouTube</span>
+            </div>
+          </a>
+          <a class="vcard" href="https://www.youtube.com/watch?v=DxfCZjUlYws">
+            <div class="vscreen"><span class="vtag">Installation</span><span class="play" aria-hidden="true"></span></div>
+            <div class="vbody">
+              <h3 class="vtitle">How to Install SQL Server 2025 on Windows 11</h3>
+              <p class="vdesc">Installer options, edition and features, instance and service account setup, and checking the new instance in SSMS.</p>
+              <span class="vgo">Watch on YouTube</span>
+            </div>
+          </a>
+          <a class="vcard" href="https://www.youtube.com/watch?v=9kiTUlg4V6E">
+            <div class="vscreen"><span class="vtag">High availability</span><span class="play" aria-hidden="true"></span></div>
+            <div class="vbody">
+              <h3 class="vtitle">SQL Server Manual Failover: AlwaysOn Availability Groups and Database Mirroring</h3>
+              <p class="vdesc">A walkthrough in SSMS of forcing manual failovers in both technologies, when to use them, and what to check before and after.</p>
+              <span class="vgo">Watch on YouTube</span>
+            </div>
+          </a>
+          <a class="vcard" href="https://www.youtube.com/watch?v=bdr9XZp7KUc">
+            <div class="vscreen"><span class="vtag">Performance tuning</span><span class="play" aria-hidden="true"></span></div>
+            <div class="vbody">
+              <h3 class="vtitle">A Database Admin's Approach to Performance Tuning</h3>
+              <p class="vdesc">A systematic method for finding and fixing SQL Server bottlenecks, covering tools, indexing, query optimization, statistics and wait stats.</p>
+              <span class="vgo">Watch on YouTube</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="wrap">
+      <div class="stack">
+        <h2>Teaching and education</h2>
+        <div class="two">
+          <div>
+            <h3>NSTAR Technologies DBA program</h3>
+            <p class="note" style="color:var(--muted);font-size:0.9rem">Instructor, Atlanta, GA, since August 2025</p>
+            <ul>
+              <li>Three cohorts a year: January, May and September.</li>
+              <li>Financing partners Fortify and Edly open the program to more students.</li>
+              <li>Accreditation work with WIOA and GNPEC.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Education</h3>
+            <div class="entry" style="margin-top:0.75rem">
+              <p><strong>Bachelor of Science, Mass Communication</strong></p>
+              <p class="meta">Godfrey Okoye University, Oct 2016 to Sep 2020</p>
+            </div>
+            <div class="entry">
+              <p><strong>Certificate Program: SQL Database Administration</strong></p>
+              <p class="meta">NSTAR Technologies, January 2022</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <div class="intro">
+          <p style="font-size:1.08rem">Open to conversations about SQL Server DBA roles and database training.</p>
+          <ul class="contact-list">
+            <li>
+              <div class="v-wrap"><span class="label k">Email</span><span class="v" id="c-email">thejosephonuoha@gmail.com</span></div>
+              <button class="copy" type="button" data-copy="c-email">Copy</button>
+            </li>
+            <li>
+              <div class="v-wrap"><span class="label k">Phone</span><span class="v" id="c-phone">+234 906 940 2293</span></div>
+              <button class="copy" type="button" data-copy="c-phone">Copy</button>
+            </li>
+            <li>
+              <div class="v-wrap"><span class="label k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/josephonuoha">linkedin.com/in/josephonuoha</a></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Joseph Onuoha</span>
+    <span>SQL Server DBA &middot; Instructor</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll("[data-copy]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var target = document.getElementById(btn.getAttribute("data-copy"));
+    var text = target.textContent.trim();
+    var original = btn.textContent;
+    function done(msg) {
+      btn.textContent = msg;
+      setTimeout(function () { btn.textContent = original; }, 1600);
+    }
+    function select() {
+      var range = document.createRange();
+      range.selectNodeContents(target);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      done("Selected");
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done("Copied"); }, select);
+    } catch (e) {
+      select();
+    }
+  });
+});
+</script>
+
+</body></html>
